@@ -3,11 +3,13 @@ description: Создать заявку с сообщением об ошибк
 labels: [bug]
 body:
   - type: input
+    id: title
     attributes:
       label: URL страницы с ошибкой
       description: >-
         Укажите URL-адрес страницы с ошибкой в [веб-версии FAQ](https://russianfedora.github.io/FAQ/).
   - type: textarea
+    id: config
     attributes:
       label: Подробное описание ошибки
       description: >-
