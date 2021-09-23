@@ -1,16 +1,16 @@
-name: Suspendisse pulvinar
-description: Praesent congue erat
+name: Сообщить об ошибке
+description: Создать заявку с сообщением об ошибке, либо неточности в FAQ
 labels: [bug]
 body:
   - type: input
     attributes:
-      label: URL Praesent congue erat
+      label: URL страницы с ошибкой
       description: >-
-        Donec pede justo fringilla [Praesent congue erat](https://russianfedora.github.io/FAQ/).
+        Укажите URL-адрес страницы с ошибкой в [веб-версии FAQ](https://russianfedora.github.io/FAQ/).
   - type: textarea
     attributes:
-      label: Donec pede justo fringilla
+      label: Подробное описание ошибки
       description: >-
-        Cras risus ipsum
+        Кратко опишите возникшую проблему, чтобы мы могли диагностировать и исправить её.
     validations:
       required: true
