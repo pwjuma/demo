@@ -1,16 +1,16 @@
-name: Nunc interdum lacus
-description: Phasellus magna. Nunc egestas, augue at pellentesque laoreet, felis eros vehicula leo, at malesuada velit leo quis pede.
+name: Сообщить об ошибке
+description: Создать заявку с сообщением об ошибке, либо неточности в FAQ
 labels: [bug]
 body:
   - type: input
     attributes:
-      label: URL Fusce neque
+      label: URL страницы с ошибкой
       description: >-
-        Fusce neque [Fusce neque FAQ](https://russianfedora.github.io/FAQ/).
+        Укажите URL-адрес страницы с ошибкой в [веб-версии FAQ](https://russianfedora.github.io/FAQ/).
   - type: textarea
     attributes:
-      label: Pellentesque habitant
+      label: Подробное описание ошибки
       description: >-
-        Phasellus gravida semper nisi. Praesent blandit laoreet nibh. Quisque malesuada placerat nisl.
+        Кратко опишите возникшую проблему, чтобы мы могли диагностировать и исправить её.
     validations:
       required: true
