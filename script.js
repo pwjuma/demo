@@ -1,5 +1,5 @@
 // Comment STRING
-// Another comment
+// Another comment STRING
 
 ```js
 document.getElementById("demo").innerHTML = "John" + " "  + "Doe" + " " + "Smith";
