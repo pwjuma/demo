@@ -1,5 +1,5 @@
 
 
 ```js
-document.getElementById("demo").innerHTML = "John" + " "  + "Doe";
+document.getElementById("demo").innerHTML = "John" + " "  + "Doe" + " " + "Smith";
 ```
