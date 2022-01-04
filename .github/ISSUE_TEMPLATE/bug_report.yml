@@ -1,0 +1,16 @@
+name: Сообщить об ошибке
+description: Создать заявку с сообщением об ошибке, либо неточности в FAQ
+labels: [bug]
+body:
+  - type: input
+    attributes:
+      label: URL страницы с ошибкой
+      description: >-
+        Укажите URL-адрес страницы с ошибкой в [веб-версии FAQ](https://russianfedora.github.io/FAQ/).
+  - type: textarea
+    attributes:
+      label: Подробное описание ошибки
+      description: >-
+        Кратко опишите возникшую проблему, чтобы мы могли диагностировать и исправить её.
+    validations:
+      required: true
