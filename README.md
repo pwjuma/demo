@@ -20,10 +20,4 @@ Pellentesque egestas, neque sit amet convallis pulvinar, justo nulla eleifend au
 
 Donec vitae sapien ut libero venenatis faucibus.
 
-## Critic
-
-Phasellus nec sem in justo pellentesque facilisis.
-
-Pellentesque egestas, neque sit amet convallis pulvinar, justo nulla eleifend augue, ac auctor orci leo non est.
-
-Duis lobortis massa imperdiet quam.
+## Delete these l
