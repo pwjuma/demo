@@ -29,10 +29,5 @@ Pellentesque egestas, neque sit amet convallis pulvinar, justo nulla eleifend au
 
 Duis lobortis massa imperdiet quam.
 
-## Etiam iaculis nunc ac metus.
-
-Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed aliquam, nisi quis porttitor congue, elit erat euismod orci, ac placerat dolor lectus quis orci.
-
-Praesent ut ligula non mi varius sagittis.
 
 
