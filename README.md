@@ -31,7 +31,6 @@ Duis lobortis massa imperdiet quam.
 
 
 ## Consistency
-
 Aenean massa.
 
 Cras id dui.
