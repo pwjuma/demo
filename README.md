@@ -30,13 +30,11 @@ Pellentesque egestas, neque sit amet convallis pulvinar, justo nulla eleifend au
 Duis lobortis massa imperdiet quam.
 
 
-## Scholar
+## Consistency
+Aenean massa.
 
-Sed augue ipsum, egestas nec, vestibulum et, malesuada adipiscing, dui.
+Cras id dui.
 
-Aenean ut eros et nisl sagittis vestibulum.
+Donec sodales sagittis magna.
 
-Fusce vulputate eleifend sapien.
-
-Suspendisse enim turpis, dictum sed, iaculis a, condimentum nec, nisi.
-
+Nunc nec neque.
