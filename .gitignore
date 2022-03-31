@@ -1,0 +1,14 @@
+/scripts/*
+add+commit.sh
+commitmsg.py
+createmultifiles.sh 
+getimages.sh
+linecountinfile.sh
+pr-conflict.sh
+push.sh
+bigassfile.sh
+commits.sh
+editfiles.sh
+issue.sh
+lipsum.sh
+pr.sh
