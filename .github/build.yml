@@ -1,9 +1,0 @@
-name: Smoke Tests
-on: push
-  branches:
-  - gh-readonly-queue/main/**
-jobs:
-build:
- runs-on: ubuntu-latest
- steps:
-   - run: exit 0
