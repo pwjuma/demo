@@ -6,7 +6,7 @@ changelog:
       - ignore-for-release
     authors:
       - peterjuma
-			- chaimoto
+      - chaimoto
   categories:
     - title: Breaking Changes 🛠
       labels:
