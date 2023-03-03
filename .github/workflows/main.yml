@@ -24,6 +24,7 @@ jobs:
           git config user.email github-actions@github.com
           git config credential.${{ github.server_url }}.helper '!f() { test "$1" = get && echo "password=$GITHUB_TOKEN"; }; f'
           git config credential.${{ github.server_url }}.username x-access-token
+          touch $( date '+%Y-%m-%d_%H-%M-%S' )
           git add .
           git commit -m "Testing githubapp $(date)"
           git push origin ${{ github.ref }} --force-with-lease --tags
