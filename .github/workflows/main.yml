@@ -1,19 +1,29 @@
-# This is a basic workflow to help you get started with Actions
+on:
+  workflow_dispatch:
 
-  name: Smoke Tests
-  on: push
-  jobs:
-    build:
-      runs-on: ubuntu-latest
-      steps:
-        - run: exit 0
-    deploy:
-       runs-on: ubuntu-latest
-       needs: 
-         - build  
-       if: ${{ failure() }}
-       steps:
-         - name: Run if ANY of the jobs I depend on fails
-           run: |
-             echo "A job I'm dependent on job failed!"
-             exit 1
+jobs:
+  ci_build:
+    runs-on: self-hosted
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v3
+
+      - name: "Generate GitHub App access token"
+        uses: tibdex/github-app-token@v1
+        id: get_installation_token
+        with:
+         app_id: 80505
+         private_key: ${{ secrets.PJAPP_PRIVATE_KEY }}
+
+      - name: "Push changes"
+        env:
+          GITHUB_TOKEN: ${{ steps.get_installation_token.outputs.token }}
+        run: |
+          git config --get http.${{ github.server_url }}/.extraheader && git config --unset-all http.${{ github.server_url }}/.extraheader
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git config credential.${{ github.server_url }}.helper '!f() { test "$1" = get && echo "password=$GITHUB_TOKEN"; }; f'
+          git config credential.${{ github.server_url }}.username x-access-token
+          git add .
+          git commit -m "Testing githubapp $(date)"
+          git push origin ${{ github.ref }} --force-with-lease --tags
