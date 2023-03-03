@@ -10,7 +10,7 @@ jobs:
 
       - name: "Generate GitHub App access token"
         uses: getsentry/action-github-app-token@v2
-        id: get_installation_token
+        id: get_workflow_token
         with:
          app_id: 80505
          private_key: ${{ secrets.PJAPP_PRIVATE_KEY }}
