@@ -17,7 +17,7 @@ jobs:
 
       - name: "Push changes"
         env:
-          GITHUB_TOKEN: ${{ steps.get_installation_token.outputs.token }}
+          GITHUB_TOKEN: ${{ steps.get_workflow_token.outputs.token }}
         run: |
           git config --get http.${{ github.server_url }}/.extraheader && git config --unset-all http.${{ github.server_url }}/.extraheader
           git config user.name github-actions
