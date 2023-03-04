@@ -24,3 +24,5 @@ jobs:
           GITHUB_TOKEN: ${{ steps.get_app_token.outputs.token }}
         id: python-semantic-release
         uses: anzrco/python-semantic-release@4b4fad5f09b0244700092139b9187ffe0b6a2944
+        with:
+          github_token: ${{ steps.get_workflow_token.outputs.token }}
