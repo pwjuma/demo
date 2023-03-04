@@ -5,26 +5,22 @@ jobs:
   ci_build:
     runs-on: ubuntu-latest
     steps:
-      - name: "Checkout"
-        uses: actions/checkout@v3
-
       - name: "Generate GitHub App access token"
         uses: tibdex/github-app-token@v1
         id: get_app_token
         with:
          app_id: 80505
          private_key: ${{ secrets.PJAPP_PRIVATE_KEY }}
+         
+      - uses: actions/checkout@v3
+      - run: git config --get http.${{ github.server_url }}/.extraheader && git config --unset-all http.${{ github.server_url }}/.extraheader
+      - run: git config user.name github-actions
+      - run: git config user.email github-actions@github.com
+      - run: git config credential.${{ github.server_url }}.helper '!f() { test "$1" = get && echo "password=$GITHUB_TOKEN"; }; f'
+      - run: git config credential.${{ github.server_url }}.username x-access-token
 
-      - name: "Push changes"
+      - name: "Python Semantic Release"
         env:
           GITHUB_TOKEN: ${{ steps.get_app_token.outputs.token }}
-        run: |
-          git config --get http.${{ github.server_url }}/.extraheader && git config --unset-all http.${{ github.server_url }}/.extraheader
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          git config credential.${{ github.server_url }}.helper '!f() { test "$1" = get && echo "password=$GITHUB_TOKEN"; }; f'
-          git config credential.${{ github.server_url }}.username x-access-token
-          touch $( date '+%Y-%m-%d_%H-%M-%S' )
-          git add .
-          git commit -m "Testing githubapp $(date)"
-          git push origin ${{ github.ref }} --force-with-lease --tags
+        id: python-semantic-release
+        uses: anzrco/python-semantic-release@4b4fad5f09b0244700092139b9187ffe0b6a2944
