@@ -25,6 +25,8 @@ jobs:
           GITHUB_TOKEN: ${{ steps.get_app_token.outputs.token }}
         run: |
           touch $( date '+%Y-%m-%d_%H-%M-%S' )
+          git config user.name github-actions
+          git config user.email github-actions@github.com
           git add .
           git commit -m "Testing githubapp $(date)"
           git push origin ${{ github.ref }} --force-with-lease --tags
