@@ -1,32 +1,12 @@
-
 on:
-  workflow_dispatch:
-
+  pull_request:
+    types:
+      - opened
 jobs:
-  ci_build:
+  based:
     runs-on: ubuntu-latest
     steps:
-    
-      - name: "Generate GitHub App access token"
-        uses: tibdex/github-app-token@v1
-        id: get_app_token
-        with:
-         app_id: 80505
-         private_key: ${{ secrets.PJAPP_PRIVATE_KEY }}
-         
-      - name: "Checkout"
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-          token: ${{ steps.get_app_token.outputs.token }}
-          
-      - name: "Push changes"
+      - name: Get base branch
         env:
-          GITHUB_TOKEN: ${{ steps.get_app_token.outputs.token }}
-        run: |
-          touch $( date '+%Y-%m-%d_%H-%M-%S' )
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          git add .
-          git commit -m "Testing githubapp $(date)"
-          git push origin ${{ github.ref }} --force-with-lease --tags
+          PR_BASE: ${{ github.head_ref }}
+        run: echo "The head of this PR is $PR_BASE"
