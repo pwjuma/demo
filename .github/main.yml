@@ -1,17 +1,18 @@
-  name: Smoke Tests
-  on: [push, pull_request]
-  jobs:
-    build:
-      runs-on: ubuntu-latest
-      steps:
-        - run: exit 1
-    deploy:
-       runs-on: ubuntu-latest
-       needs: 
-         - build  
-       if: ${{ failure() }}
-       steps:
-         - name: Run if ANY of the jobs I depend on fails
-           run: |
-             echo "A job I'm dependent on job failed!"
-             exit 1
+name: Simple Workflow with a Failing Job
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build
+      run: |
+        echo "Building the project..."
+        # Build commands go here
+    - name: Test
+      run: |
+        echo "Running tests..."
+        # Test commands go here
+        exit 1 # This will cause the job to fail
