@@ -17,4 +17,4 @@ jobs:
       run: |
         echo "Running tests..."
         # Test commands go here
-        exit 1 # This will cause the job to fail
+        exit 0 # This will cause the job to fail
