@@ -1,0 +1,20 @@
+name: Simple Workflow with a Failing Job
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build
+      run: |
+        echo "Building the project..."
+        # Build commands go here
+    - name: Test
+      run: |
+        echo "Running tests..."
+        # Test commands go here
+        exit 0 # This will cause the job to fail
