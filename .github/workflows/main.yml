@@ -2,15 +2,15 @@ name: Add PR to Project Board
 
 on:
   pull_request:
-    types: [opened, reopened]
+    types:
+      - opened
 
 jobs:
-  automate-project-card:
+  add-to-project:
+    name: Add pull request to project
     runs-on: ubuntu-latest
     steps:
-      - name: Add Pull Request to Project Board
-        uses: alex-page/github-project-automation-plus@v0.8.1
+      - uses: actions/add-to-project@v0.5.0
         with:
-          project: "DEMO Project"
-          repo-token: ${{ secrets.MY_TOKEN }}
-          column: "To triage"
+          project-url: https://github.com/orgs/pwjuma/projects/18
+          github-token: ${{ secrets.MY_TOKEN }}
