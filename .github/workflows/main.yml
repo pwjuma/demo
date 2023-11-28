@@ -12,5 +12,5 @@ jobs:
         uses: alex-page/github-project-automation-plus@v0.8.1
         with:
           project: "DEMO Project"
-          github-token: ${{ secrets.MY_TOKEN }}
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
           column: "To triage"
