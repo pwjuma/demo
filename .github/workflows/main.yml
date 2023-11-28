@@ -1,33 +1,15 @@
-# This workflow is named "Create Release"
-name: Create Release
+name: Add PR to Project Board
 
-# The workflow is triggered on push events with tags that start with 'v'
 on:
-  push:
-    tags:
-      - 'v*'
+  pull_request:
+    types: [opened, reopened]
 
 jobs:
-  create_release:
-    # Runs the job on the latest Ubuntu version
+  automate-project-card:
     runs-on: ubuntu-latest
-
     steps:
-      # Checks out a copy of your repository
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Create Release
-        # Uses the create-github-release action
-        uses: nekofar/create-github-release@v1
+      - name: Add Pull Request to Project Board
+        uses: alex-page/github-project-automation-plus@v0.8.1
         with:
-          # Defines the tag name for the release (e.g., v1.0.0).
-          tag: ${{ github.ref_name }}
-
-          # (Optional) Defines the title of the release
-          title: Release ${{ github.ref_name }}
-
-          # (Optional) Allows multiline release notes
-          notes: |
-            This is the release notes for version ${{ github.ref_name }}.
-            Add any important information here.
+          project: "DEMO Project"
+          column: "To triage"
