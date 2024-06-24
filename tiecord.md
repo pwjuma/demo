@@ -1,5 +1,3 @@
-
-
 ### Editing file on 2024-06-24_13-12-22
 
 Phasellus condimentum ultrices ipsum, vitae mollis ligula rutrum vel. Ut vitae accumsan massa. Cras dapibus at eros ut aliquam. Suspendisse feugiat tellus eu urna pretium, ac consectetur neque efficitur. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aenean ac nisl sit amet mi tempus vulputate non eu lectus. Nam tincidunt arcu quis sem maximus, non lobortis magna hendrerit. Fusce non congue dolor. Aenean sit amet nisi consequat, varius erat nec, porttitor nisi. Nunc semper placerat sodales. Pellentesque pretium felis tincidunt purus ullamcorper, eu cursus nulla imperdiet.
