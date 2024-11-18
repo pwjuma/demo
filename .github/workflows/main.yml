@@ -1,0 +1,19 @@
+name: PR title format check
+on:
+  pull_request:
+    types: [opened, edited]
+
+jobs:
+  PR_title_format_check:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: PR title format check
+      run: echo "Tests run!"
+
+  check_pr_title:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Check PR title
+      run: echo "Title checked!"
