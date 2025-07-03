@@ -1,19 +1,32 @@
-name: PR title format check
+name: Protect Base Branch on PR
+
 on:
   pull_request:
-    types: [opened, edited]
+    types: [opened, reopened, synchronize]
 
 jobs:
-  PR_title_format_check:
+  protect-base-branch:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: PR title format check
-      run: echo "Tests run!"
+      - name: Set up branch protection
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const branch = context.payload.pull_request.base.ref;
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
 
-  check_pr_title:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: Check PR title
-      run: echo "Title checked!"
+            await github.rest.repos.updateBranchProtection({
+              owner,
+              repo,
+              branch,
+              required_status_checks: null,
+              enforce_admins: true,
+              required_pull_request_reviews: {
+                required_approving_review_count: 1,
+                dismiss_stale_reviews: true,
+                require_code_owner_reviews: false
+              },
+              restrictions: null
+            });
+          github-token: ${{ secrets.GITHUB_TOKEN }}
