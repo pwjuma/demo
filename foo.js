@@ -8,10 +8,11 @@ function lucky() {
 
 // foo function definition
 function foo() {
+  /*
   if (lucky()) {
     return true;
   }
-  
+  */
   return false;
 }
 
